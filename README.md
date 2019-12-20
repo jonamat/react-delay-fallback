@@ -1,14 +1,13 @@
 # react-library-boilerplate
 
-Starting point for my React components libraries.\
-It provides a bunch of semi-defined files to speed up lib developing and publishing (included this readme).\
-Build script transpiles typescript source to tree-shakable esnext code with ES modules and legacy ES5 code with commonJS modules, both generated with ts declaration file.\
-It provides also support for component testing with Jest, React Testing Library and React Test Renderer, coverage reports, eslint linting and prettier/editorConfig integration
+![size](https://img.shields.io/bundlephobia/min/react-delay-fallback)
+
+React component to delay children rendering and show a fallback component while waiting
 
 ## Installation
 
 ```cli
-npm i git+https://github.com/jonamat/react-library-boilerplate.git
+npm i react-delay-fallback
 ```
 
 ## Compatibility
@@ -17,8 +16,8 @@ Compatible with React >=16.8.0\
 Compatible with Node >=8.0.0\
 
 ## Feature
-- List of the features of the lib
-- "Other features" are common features provided in all my libs
+- Extremely small: it uses react hooks and will weighs less than 1kb in your final bundle
+- Safe unmounting: it clears timers and listeners at unmounting
 
 ### Other features
 - Runtime type checking with prop-types and static with typescript declaration files
@@ -30,35 +29,42 @@ Compatible with Node >=8.0.0\
 
 Index
 
-[MyComponent](#MyComponent)
+[Delay](#Delay)
 
 ---
 
-#### MyComponent
+#### Delay
 
-MyComponent description
+React component to delay children rendering
 
-```import { MyComponent } from 'react-library-boilerplate'```
+```import { Delay } from 'react-delay-fallback```
 
-| Prop     | Type      | Default | Description    |
-| -------- | --------- | ------- | -------------- |
-| `myProp` | ReactNode | `world` | Something cool |
+| Prop       | Type        | Default     | Usage                                                 |
+| ---------- | ----------- | ----------- | ----------------------------------------------------- |
+| `timeout`  | number      | `0`         | Time in milliseconds for rendering                    |
+| `fallback` | JSX.Element | `undefined` | Component to render instead of children while waiting |
+| `onRender` | Function    | `undefined` | Function to trigger on render                         |
 
 ---
 
 ## Usage examples
 
-A list of examples
-
 ```jsx
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { MyComponent } from 'react-library-boilerplate'
+import { Delay } from 'react-delay-fallback;
 
-ReactDOM.render(
-    <MyComponent myProp="moon" />,
-     document.getElementById('root')
-)
+function App() {
+    const handleOnRender = () => window.alert('Callback invoked at rendering');
+
+    return (
+        <Delay
+        timeout={5000}
+        fallback={<span>Wait a moment...</span>}
+        onRender={handleOnRender}>
+            <h1>This</h1>
+            <p>Will appear after 5 seconds</p>
+        </Delay>
+    );
+}
 
 ```
 
