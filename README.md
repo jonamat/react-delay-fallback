@@ -1,6 +1,8 @@
-# react-library-boilerplate
+# react-delay-fallback
 
+![version](https://img.shields.io/npm/v/react-delay-fallback)
 ![size](https://img.shields.io/bundlephobia/min/react-delay-fallback)
+![download](https://img.shields.io/npm/dm/react-delay-fallback)
 
 React component to delay children rendering and show a fallback component while waiting
 
@@ -13,7 +15,7 @@ npm i react-delay-fallback
 ## Compatibility
 
 Compatible with React >=16.8.0\
-Compatible with Node >=8.0.0\
+Compatible with Node >=8.0.0
 
 ## Feature
 - Extremely small: it uses react hooks and will weighs less than 1kb in your final bundle
@@ -21,7 +23,7 @@ Compatible with Node >=8.0.0\
 
 ### Other features
 - Runtime type checking with prop-types and static with typescript declaration files
-- Exaustive doc comments
+- Exhaustive doc comments
 - Tree shakable: exported with ESM modules
 - Tested with available coverage report
 
@@ -50,7 +52,7 @@ React component to delay children rendering
 ## Usage examples
 
 ```jsx
-import { Delay } from 'react-delay-fallback;
+import { Delay } from 'react-delay-fallback';
 
 function App() {
     const handleOnRender = () => window.alert('Callback invoked at rendering');
