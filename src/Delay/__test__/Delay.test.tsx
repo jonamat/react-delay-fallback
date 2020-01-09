@@ -37,7 +37,7 @@ describe('Component', () => {
 
     it('validates props', () => {
         renderComponent({ timeout: 'not a number' });
-        renderComponent({ fallback: 'not an element or null' });
+        renderComponent({ fallback: { something: 'wrong' } });
         renderComponent({ onRender: 'not a function' });
 
         expect(console.error).toBeCalledTimes(3);

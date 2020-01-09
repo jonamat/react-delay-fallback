@@ -5,7 +5,7 @@ interface DelayProps {
     /** Render delay. Default `0` */
     timeout?: number;
     /** Component to render instead of children while waiting.*/
-    fallback?: JSX.Element;
+    fallback?: ReactNode;
     /** Function to trigger on render. */
     onRender?: (...args: Array<unknown>) => unknown;
     children?: ReactNode;
@@ -38,7 +38,7 @@ const Delay: FC<DelayProps> = ({ timeout = 0, children, fallback, onRender }) =>
 
 Delay.propTypes = {
     timeout: PropTypes.number,
-    fallback: PropTypes.element,
+    fallback: PropTypes.node,
     onRender: PropTypes.func,
     children: PropTypes.node.isRequired,
 };
