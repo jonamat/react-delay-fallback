@@ -1,8 +1,16 @@
 {
     "name": "react-delay-fallback",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "React component to delay children rendering",
-    "keywords": [],
+    "keywords": [
+        "react",
+        "delay",
+        "fallback",
+        "wait",
+        "render",
+        "suspend",
+        "defer"
+    ],
     "author": {
         "name": "Jonathan Mataloni",
         "email": "jo.mataloni@gmail.com",
