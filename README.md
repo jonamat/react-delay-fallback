@@ -41,11 +41,11 @@ React component to delay children rendering
 
 ```import { Delay } from 'react-delay-fallback```
 
-| Prop       | Type        | Default     | Usage                                                 |
-| ---------- | ----------- | ----------- | ----------------------------------------------------- |
-| `timeout`  | number      | `0`         | Time in milliseconds for rendering                    |
-| `fallback` | JSX.Element | `undefined` | Component to render instead of children while waiting |
-| `onRender` | Function    | `undefined` | Function to trigger on render                         |
+| Prop       | Type      | Default     | Usage                                                 |
+| ---------- | --------- | ----------- | ----------------------------------------------------- |
+| `timeout`  | number    | `0`         | Time in milliseconds for rendering                    |
+| `fallback` | ReactNode | `undefined` | Component to render instead of children while waiting |
+| `onRender` | Function  | `undefined` | Function to trigger on render                         |
 
 ---
 
