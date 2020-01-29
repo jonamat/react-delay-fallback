@@ -3,14 +3,20 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { create } from 'react-test-renderer';
 
-import Delay from '..';
+import { Delay } from '..';
 
 jest.useFakeTimers();
-console.error = jest.fn();
 const onRender = jest.fn();
 
+const consoleError = jest.fn();
+Object.defineProperty(console, 'error', {
+    get() {
+        return consoleError;
+    },
+});
+
 beforeEach(() => {
-    console.error.mockClear();
+    consoleError.mockClear();
     onRender.mockClear();
 });
 
@@ -26,7 +32,7 @@ describe('Component', () => {
         expect(() => {
             const { queryByTestId } = renderComponent({ timeout: 1000 });
 
-            expect(console.error).not.toBeCalled();
+            expect(consoleError).not.toBeCalled();
             expect(queryByTestId('children')).not.toBeInTheDocument();
 
             jest.runAllTimers();
@@ -40,7 +46,7 @@ describe('Component', () => {
         renderComponent({ fallback: { something: 'wrong' } });
         renderComponent({ onRender: 'not a function' });
 
-        expect(console.error).toBeCalledTimes(3);
+        expect(consoleError).toBeCalledTimes(3);
     });
 
     it('shows fallback first and children at timeout', () => {
@@ -71,7 +77,7 @@ describe('Component', () => {
     it('shows chidren if props are undefined', () => {
         const { queryByTestId } = renderComponent();
 
-        expect(console.error).not.toBeCalled();
+        expect(consoleError).not.toBeCalled();
         expect(queryByTestId('children')).toBeInTheDocument();
     });
 
