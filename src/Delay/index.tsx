@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect, ReactNode } from 'react';
 import PropTypes from 'prop-types';
 
-interface DelayProps {
+export interface DelayProps {
     /** Render delay. Default `0` */
     timeout?: number;
     /** Component to render instead of children while waiting.*/
@@ -12,7 +12,7 @@ interface DelayProps {
 }
 
 /** Delay children components. See [Docs](https://github.com/jonamat/react-delay-fallback). */
-const Delay: FC<DelayProps> = ({ timeout = 0, children, fallback, onRender }) => {
+export const Delay: FC<DelayProps> = ({ timeout = 0, children, fallback, onRender }) => {
     let timerId: NodeJS.Timeout | null;
     const [timeoutOver, setTimeoutOver] = useState<boolean>(!timeout);
 
@@ -42,5 +42,3 @@ Delay.propTypes = {
     onRender: PropTypes.func,
     children: PropTypes.node.isRequired,
 };
-
-export default Delay;
