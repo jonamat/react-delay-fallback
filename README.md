@@ -17,9 +17,9 @@ npm i react-delay-fallback
 Compatible with React >=16.8.0\
 Compatible with Node >=8.0.0
 
-## Feature
-- Extremely small: it uses react hooks and will weighs less than 1kb in your final bundle
-- Safe unmounting: it clears timers and listeners at unmounting
+## Features
+- Extremely small: uses react hooks and will occupying less than 2kb in your final bundle
+- Safe unmounting: clears timers and listeners at unmounting
 
 ### Other features
 - Runtime type checking with prop-types and static with typescript declaration files
@@ -37,15 +37,15 @@ Index
 
 #### Delay
 
-React component to delay children rendering
-
 ```import { Delay } from 'react-delay-fallback```
 
-| Prop       | Type      | Default     | Usage                                                 |
-| ---------- | --------- | ----------- | ----------------------------------------------------- |
-| `timeout`  | number    | `0`         | Time in milliseconds for rendering                    |
-| `fallback` | ReactNode | `undefined` | Component to render instead of children while waiting |
-| `onRender` | Function  | `undefined` | Function to trigger on render                         |
+Type: `FunctionComponent`
+
+| Prop        | Type        | Default     | Usage                                                 |
+| ----------- | ----------- | ----------- | ----------------------------------------------------- |
+| `timeout`?  | `number`    | `0`         | Time in milliseconds for rendering                    |
+| `fallback`? | `ReactNode` | `undefined` | Component to render instead of children while waiting |
+| `onRender`? | `Function`  | `undefined` | Function to trigger on render                         |
 
 ---
 
@@ -60,7 +60,7 @@ function App() {
     return (
         <Delay
         timeout={5000}
-        fallback={<span>Wait a moment...</span>}
+        fallback={<span>Wait a moment...</span>} // <-- this will be rendered while page is loading
         onRender={handleOnRender}>
             <h1>This</h1>
             <p>Will appear after 5 seconds</p>
