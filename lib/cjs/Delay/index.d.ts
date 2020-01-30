@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-interface DelayProps {
+export interface DelayProps {
     /** Render delay. Default `0` */
     timeout?: number;
     /** Component to render instead of children while waiting.*/
@@ -9,5 +9,4 @@ interface DelayProps {
     children?: ReactNode;
 }
 /** Delay children components. See [Docs](https://github.com/jonamat/react-delay-fallback). */
-declare const Delay: FC<DelayProps>;
-export default Delay;
+export declare const Delay: FC<DelayProps>;

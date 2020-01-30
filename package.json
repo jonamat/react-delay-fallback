@@ -1,7 +1,7 @@
 {
     "name": "react-delay-fallback",
-    "version": "1.0.1",
-    "description": "React component to delay children rendering",
+    "version": "1.0.2",
+    "description": "React component to delay children rendering and show a fallback component while waiting",
     "keywords": [
         "react",
         "delay",
