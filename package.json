@@ -1,6 +1,6 @@
 {
     "name": "react-delay-fallback",
-    "version": "1.0.2",
+    "version": "2.0.0",
     "description": "React component to delay children rendering and show a fallback component while waiting",
     "keywords": [
         "react",
@@ -44,31 +44,34 @@
         "prepublish": "npm run lint:fix && npm run test && npm run build"
     },
     "devDependencies": {
-        "@testing-library/jest-dom": "5.11.1",
-        "@testing-library/react": "10.4.7",
-        "@types/jest": "26.0.5",
-        "@types/react": "16.9.43",
-        "@types/react-dom": "16.9.8",
-        "@typescript-eslint/eslint-plugin": "3.7.0",
-        "@typescript-eslint/parser": "3.7.0",
-        "concurrently": "^5.2.0",
-        "eslint": "7.5.0",
-        "eslint-config-prettier": "6.11.0",
-        "eslint-plugin-prettier": "3.1.4",
-        "eslint-plugin-react": "7.20.3",
-        "jest": "26.1.0",
-        "prettier": "2.0.5",
-        "prop-types": "15.7.2",
-        "react": "16.8.0",
-        "react-dom": "16.8.0",
-        "react-test-renderer": "16.8.0",
+        "@testing-library/jest-dom": "5.16.2",
+        "@testing-library/react": "12.1.4",
+        "@types/jest": "27.4.1",
+        "@types/react": "17.0.41",
+        "@types/react-dom": "17.0.14",
+        "@types/react-test-renderer": "^17.0.1",
+        "@typescript-eslint/eslint-plugin": "5.16.0",
+        "@typescript-eslint/parser": "5.16.0",
+        "concurrently": "^7.0.0",
+        "eslint": "^8.11.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.29.4",
+        "eslint-plugin-unused-imports": "^2.0.0",
+        "jest": "27.5.1",
+        "prettier": "2.6.0",
+        "prop-types": "15.8.1",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "react-test-renderer": "17.0.2",
         "rimraf": "^3.0.2",
-        "ts-jest": "26.1.3",
-        "typescript": "3.9.7"
+        "ts-jest": "27.1.3",
+        "typescript": "4.6.2"
     },
     "peerDependencies": {
-        "react-dom": "^16.8.0",
-        "prop-types": "^15.6.2",
-        "react": "^16.8.0"
+        "prop-types": "^15",
+        "react": "^17",
+        "react-dom": "^17"
     }
 }

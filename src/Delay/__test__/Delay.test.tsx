@@ -5,7 +5,7 @@ import { create } from 'react-test-renderer';
 
 import { Delay } from '..';
 
-jest.useFakeTimers();
+jest.useFakeTimers('legacy');
 const onRender = jest.fn();
 
 const consoleError = jest.fn();
@@ -42,8 +42,10 @@ describe('Component', () => {
     });
 
     it('validates props', () => {
+        // @ts-expect-error - test
         renderComponent({ timeout: 'not a number' });
         renderComponent({ fallback: { something: 'wrong' } });
+        // @ts-expect-error - test
         renderComponent({ onRender: 'not a function' });
 
         expect(consoleError).toBeCalledTimes(3);
@@ -74,7 +76,7 @@ describe('Component', () => {
         expect(onRender).toBeCalledTimes(1);
     });
 
-    it('shows chidren if props are undefined', () => {
+    it('shows children if props are undefined', () => {
         const { queryByTestId } = renderComponent();
 
         expect(consoleError).not.toBeCalled();
@@ -90,16 +92,16 @@ describe('Component', () => {
     });
 
     it('matches the snapshot', () => {
-        const fallbackSnapshoot = create(<Delay timeout={100} fallback={<div>fallback snapshot</div>} />).toJSON();
+        const fallbackSnapshot = create(<Delay timeout={100} fallback={<div>fallback snapshot</div>} />).toJSON();
 
-        expect(fallbackSnapshoot).toMatchSnapshot();
+        expect(fallbackSnapshot).toMatchSnapshot();
 
-        const childSnapshoot = create(
+        const childSnapshot = create(
             <Delay timeout={0}>
                 <div>child snapshot</div>
             </Delay>,
         ).toJSON();
 
-        expect(childSnapshoot).toMatchSnapshot();
+        expect(childSnapshot).toMatchSnapshot();
     });
 });
